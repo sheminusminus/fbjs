@@ -20,7 +20,8 @@ var performanceNow;
 if (performance.now) {
   performanceNow = () => performance.now();
 } else {
-  performanceNow = () => Date.now();
+  var initNow = Date.now();
+  performanceNow = () => Date.now() - initNow;
 }
 
 module.exports = performanceNow;
